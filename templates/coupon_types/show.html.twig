@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CouponTypes{% endblock %}
+
+{% block body %}
+    <h1>CouponTypes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ coupon_type.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ coupon_type.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_coupon_types_index') }}">back to list</a>
+
+    <a href="{{ path('app_coupon_types_edit', {'id': coupon_type.id}) }}">edit</a>
+
+    {{ include('coupon_types/_delete_form.html.twig') }}
+{% endblock %}

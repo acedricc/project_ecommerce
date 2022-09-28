@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coupons{% endblock %}
+
+{% block body %}
+    <h1>Coupons</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ coupon.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ coupon.code }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ coupon.description }}</td>
+            </tr>
+            <tr>
+                <th>Remise</th>
+                <td>{{ coupon.remise }}</td>
+            </tr>
+            <tr>
+                <th>Max_usage</th>
+                <td>{{ coupon.maxUsage }}</td>
+            </tr>
+            <tr>
+                <th>Date_validation</th>
+                <td>{{ coupon.dateValidation ? coupon.dateValidation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Is_valid</th>
+                <td>{{ coupon.isValid ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ coupon.createdAt ? coupon.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_coupons_index') }}">back to list</a>
+
+    <a href="{{ path('app_coupons_edit', {'id': coupon.id}) }}">edit</a>
+
+    {{ include('coupons/_delete_form.html.twig') }}
+{% endblock %}
